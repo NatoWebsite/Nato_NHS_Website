@@ -1,40 +1,63 @@
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<a>
-   <marquee scrollamount="5" direction="left" behavior="slide Once","stop at the end">
-<img class="image" src="G7.jpg" alt="NATO_NHS" width="500px" height="500px"> 
-<img class="image" src="treeplant.jpg" alt="NATO_NHS" width="500px" height="500px"> 
-<img class="image" src="gunpic.jpg" alt="NATO_NHS" width="500px" height="500px"> 
-<img class="image" src="teachers.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="stakeholder.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="sympo2.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="sympo3.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="symposium.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="nato_pic3.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="TEACHERSYMPO.jpg" alt="NATO_NHS" width="700px" height="700px"> 
-<img class="image" src="G11.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="G12.jpg" alt="NATO_NHS" width="1000px" height="500px
-<img class="image" src="DLC2.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="MASSDEMO.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="ADAS.jpg" alt="NATO_NHS" width="500px" height="500px"> 
-<img class="image" src="DLC.jpg" alt="NATO_NHS" width="1000px" height="500px"> 
-<img class="image" src="BINI.jpg" alt="NATO_NHS" width="700px" height="700px"> </a>
-</marquee>
-
-<body style="background-color:powderblue;">
-	<h1> <b>Senior High School (SHS) Courses / Tracks</b></h1>
-           <p> Our Senior High School program offers a <br> variety of tracks designed to help students</br>discover their interests, develop their skills,</br>and prepare for higher education, employment,<br> entrepreneurship, or future careers. <br><br>Each track provides specialized subjects <br>and hands-on learning experiences aligned with <br>the Department of Education(DepEd) curriculum.</p>
-<hr>
-   <h1> <b>Academic Track</b></h1>
-    <p>The Academic Track is ideal for students who plan to pursue a college degree after Senior High School. It offers four strands:</p>
-<h1> <b>General Academic Strand</b></h1>
-<p>A flexible strand for students who are still exploring their career path and want exposure to different academic disciplines.</p>
-<ul>
-  <li> Balanced subjects from various fields</li>
-<li>Preparation for diverse college programs</li>
-<li>Development of general academic competencies</li>    
-</body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHS Courses | NATO National High School</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="logo.png" alt="NATO National High School logo" class="logo">
+      <div>
+        <p class="eyebrow">SHS Courses</p>
+        <h1>Senior High School Programs</h1>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="vision.html" class="nav-link">About</a>
+      <a href="shscourse.html" class="nav-link">SHS Courses</a>
+      <a href="https://www.google.com/maps/@8.6155073,125.6347308,13z?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="nav-link">Find Us</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" style="grid-template-columns: 1fr; gap: 1.5rem;">
+      <div class="hero-copy">
+        <p class="eyebrow">Senior High School</p>
+        <h2>Prepared for college, careers, and community leadership.</h2>
+        <p>Our SHS program offers well-rounded academic and career-oriented tracks that empower students to explore strengths and build skills.</p>
+      </div>
+      <div class="hero-image" style="background: url('teachers.jpg') center/cover no-repeat; min-height: 320px; border-radius: 28px;"></div>
+    </section>
+    <section class="content-grid" aria-labelledby="courses-heading">
+      <h2 id="courses-heading">Available Tracks</h2>
+      <article class="highlight-card">
+        <h3>Academic Track</h3>
+        <p>A great choice for learners aiming for college. It includes specialized strands and balanced subjects to develop academic competencies.</p>
+      </article>
+      <article class="highlight-card">
+        <h3>General Academic Strand</h3>
+        <p>This flexible strand is ideal for students who want exposure to different fields before choosing a specific career path.</p>
+      </article>
+      <article class="highlight-card">
+        <h3>Career Preparedness</h3>
+        <p>Students receive instruction that prepares them for further education, employment, entrepreneurship, and service in the community.</p>
+      </article>
+    </section>
+    <section class="gallery" aria-labelledby="course-gallery-heading">
+      <h2 id="course-gallery-heading">Program Highlights</h2>
+      <div class="gallery-grid">
+        <img src="G7.jpg" alt="Academic symposium">
+        <img src="SYMPO3.jpg" alt="School conference">
+        <img src="MASSDEMO.jpg" alt="Mass demonstration event">
+        <img src="DLC.jpg" alt="Learning activity">
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2026 NATO National High School. All rights reserved.</p>
+  </footer>
+</body>
 </html>
