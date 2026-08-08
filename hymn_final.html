@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NATO Hymn | NATO National High School</title>
+    
+    <style>
+
+        floating notes inserted
+        /* =========================
+   FLOATING HOME BUTTON
+========================= */
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    z-index: 9999;
+
+    background-color: blue;
+    color: blue;
+
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+
+    border: 2px solid white;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.3s ease;
+
+    animation: floatingHome 2.5s ease-in-out infinite;
+}
+
+.home-button:hover {
+    background-color: white;
+    color: blue;
+
+    transform: scale(1.08);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+/* =========================
+           FLOATING MUSIC NOTES
+        ========================== */
+
+        .music-note {
+            position: fixed;
+            font-size: 30px;
+            color: #0077cc;
+            opacity: 0.35;
+            animation: floatNote 6s linear infinite;
+            z-index: 1;
+        }
+
+        .note1 {
+            left: 5%;
+            bottom: -50px;
+            animation-delay: 1s;
+        }
+
+        .note2 {
+            left: 90%;
+            bottom: -50px;
+            animation-delay: 3s;
+        }
+
+        .note3 {
+            left: 50%;
+            bottom: -50px;
+            animation-delay: 5s;
+        }
+
+        @keyframes floatNote {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        up to here
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            /* Light green background */
+             linear-gradient(
+            rgba(176, 224, 230, 0.90),
+            rgba(240, 250, 252, 0.94)
+        ),
+        url("school-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: blue;
+    min-height: 100vh;
+}
+     
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        blue,
+        powderblue
+    );
+
+    color: #083b4c;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.20);
+}
+
+        /* =========================
+           PHOTO MARQUEE
+        ========================= */
+
+        .photo-section {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(255,255,255,0.75);
+            padding: 18px 0;
+
+            border-bottom: 3px solid red;
+            border-top: 3px solid red;
+        }
+
+        .photo-track {
+            display: flex;
+            width: max-content;
+
+            animation: scrollPhotos 25s linear infinite;
+        }
+
+        .photo-track img {
+            width: 180px;
+            height: 110px;
+
+            object-fit: cover;
+
+            margin: 0 10px;
+
+            border-radius: 12px;
+
+            border: 4px solid white;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.25);
+
+            transition: transform 0.3s;
+        }
+
+        .photo-track img:hover {
+            transform: scale(1.08);
+        }
+
+        @keyframes scrollPhotos {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .container {
+            max-width: 1000px;
+            margin: 45px auto;
+
+            padding: 0 20px;
+        }
+
+        .hymn-card {
+
+            background: rgba(255,255,255,0.93);
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.15);
+
+            border-top: 7px solid blue;
+        }
+
+
+        .hymn-card h2 {
+
+            font-size: 35px;
+
+            color: black;
+
+            margin-bottom: 10px;
+        }
+
+        .composer {
+
+            font-size: 18px;
+
+            color: black;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           COMPOSER
+        ========================= */
+
+        .composer-box {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 30px;
+
+            margin: 25px auto 35px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .composer-box img {
+
+            width: 150px;
+
+            height: 150px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 6px solid orange;
+
+            box-shadow:
+                0 6px 18px rgba(0,0,0,0.25);
+        }
+
+
+        .composer-info {
+
+            text-align: left;
+
+            max-width: 450px;
+        }
+
+
+        .composer-info h3 {
+
+            color: black;
+
+            font-size: 24px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .composer-info p {
+
+            color: #555;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           DIVIDER
+        ========================= */
+
+        .divider {
+
+            width: 80%;
+
+            height: 3px;
+
+            margin: 25px auto;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    blue,
+                    transparent
+                );
+        }
+
+        /* =========================
+           FLOATING MUSIC NOTES
+        ========================== */
+
+        .music-note {
+            position: fixed;
+            font-size: 30px;
+            color: red;
+            opacity: 0.35;
+            animation: floatNote 6s linear infinite;
+            z-index: 1;
+        }
+
+        .note1 {
+            left: 5%;
+            bottom: -50px;
+            animation-delay: 1s;
+        }
+
+        .note2 {
+            left: 90%;
+            bottom: -50px;
+            animation-delay: 3s;
+        }
+
+        .note3 {
+            left: 50%;
+            bottom: -50px;
+            animation-delay: 5s;
+        }
+
+        @keyframes floatNote {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .hymn-card {
+                padding: 25px 18px;
+            }
+
+            .hymn-title {
+                font-size: 30px;
+            }
+
+            .photo-track img {
+                width: 140px;
+                height: 90px;
+            }
+
+            .composer-info {
+                text-align: center;
+            }
+        }
+        /* =========================
+   FLOATING HOME BUTTON
+========================= */
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    z-index: 9999;
+
+    background-color: powderblue;
+    color: #155e75;
+
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+
+    border: 2px solid white;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.3s ease;
+
+    animation: floatingHome 2.5s ease-in-out infinite;
+}
+
+.home-button:hover {
+    background-color: white;
+    color: #155e75;
+
+    transform: scale(1.08);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+
+/* Floating animation */
+
+@keyframes floatingHome {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+        /* =========================
+           HYMN INTRODUCTION
+        ========================= */
+
+        .hymn-intro {
+
+            background: #effaf0;
+
+            border-left: 6px solid blue;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            margin-top: 25px;
+
+            color: black;
+
+            line-height: 1.7;
+        }
+
+
+        .music-icon {
+
+            font-size: 45px;
+
+            margin-bottom: 10px;
+
+            animation: musicFloat 2s ease-in-out infinite;
+        }
+
+
+        @keyframes musicFloat {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+
+        /* =========================
+           AUDIO PLAYER
+        ========================= */
+
+        .music-player {
+
+            margin-top: 30px;
+
+            background: #e4f5e7;
+
+            padding: 20px;
+
+            border-radius: 12px;
+        }
+
+        .music-player h3 {
+
+            color: black;
+
+            margin-bottom: 15px;
+        }
+
+        audio {
+
+            width: 100%;
+
+            max-width: 600px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            background: blue;
+
+            color: white;
+
+            padding: 20px;
+
+            margin-top: 40px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .hymn-card {
+                padding: 25px 18px;
+            }
+
+            .hymn-card h2 {
+                font-size: 28px;
+            }
+
+            .composer-box {
+                flex-direction: column;
+            }
+
+            .composer-info {
+                text-align: center;
+            }
+
+            .photo-track img {
+                width: 140px;
+                height: 90px;
+            }
+
+        }
+
+    </style>
+</head>
+ 
+    </style>
+</head>
+
+
+<body>
+    <!-- FLOATING HOME BUTTON -->
+
+<a href="index.html" class="home-button">
+    🏠 HOME
+</a></body>
+   <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <h1>🎵 NATO HYMΝ 🎵</h1>
+
+        <p>
+            The Official Hymn of NATO National High School
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         PHOTO MARQUEE
+    ========================== -->
+
+    <section class="photo-section">
+
+        <div class="photo-track">
+
+            <!-- FIRST SET -->
+
+            <img src="school1.jpg" alt="NATO National High School">
+            <img src="school2.jpg" alt="School Activity">
+            <img src="school3.jpg" alt="NATO National High School">
+            <img src="school4.jpg" alt="School Event">
+            <img src="school5.jpg" alt="School Activity">
+            <img src="school6.jpg" alt="School Celebration">
+
+            <!-- DUPLICATE SET FOR CONTINUOUS MARQUEE -->
+
+            <img src="school1.jpg" alt="NATO National High School">
+            <img src="school2.jpg" alt="School Activity">
+            <img src="school3.jpg" alt="NATO National High School">
+            <img src="school4.jpg" alt="School Event">
+            <img src="school5.jpg" alt="School Activity">
+            <img src="school6.jpg" alt="School Celebration">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+        <div class="hymn-card">
+
+            <div class="music-icon">
+                🎶
+            </div>
+
+            <h2>NATO Hymn</h2>
+
+            <p class="composer">
+                Music Composer: <strong>Aldrin G. Dionson</strong>
+            </p>
+
+
+            <!-- COMPOSER -->
+
+            <div class="composer-box">
+
+                <img
+                    src="ALDRIN.png"
+                    alt="Aldrin G. Dionson"
+                >
+
+                <div class="composer-info">
+
+                    <h3>
+                        Aldrin G. Dionson
+                    </h3>
+
+                    <p>
+                        Composer of the NATO National High School Hymn,
+                        whose musical work represents the pride, unity,
+                        and spirit of the NATO National High School community.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <!-- INTRODUCTION -->
+
+            <div class="hymn-intro">
+
+                <strong>🎼 About the NATO Hymn</strong>
+
+                <br><br>
+
+                The NATO Hymn reflects the pride, unity, and aspirations
+                of the NATO National High School community. It serves as
+                a symbol of our school's identity and inspires learners,
+                teachers, and the entire school community to uphold
+                excellence, unity, and love for our school.
+
+            </div>
+
+
+            <!-- MUSIC -->
+
+            <div class="music-player">
+
+                <h3>🎵 Listen to the NATO Hymn</h3>
+
+                <!-- Replace nato-hymn.mp3 with your actual audio file -->
+
+                <audio controls>
+
+                    <source
+                        src="nato-hymn.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Your browser does not support the audio element.
+
+                </audio>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © 2026 NATO National High School |
+        Nato, Esperanza, Agusan del Sur
+
+    </footer>
+
+
+</body>
+</html>
+```

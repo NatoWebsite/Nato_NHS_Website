@@ -1,0 +1,219 @@
+<style>
+    #admissionsForm {
+        background-color: orange;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 700px;
+        margin: auto;
+        box-sizing: border-box;
+    }
+
+    #admissionsForm label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    #admissionsForm input,
+    #admissionsForm select,
+    #admissionsForm textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    #admissionsForm textarea {
+        resize: vertical;
+    }
+
+    #submitBtn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    #submitBtn:hover {
+        background-color: #0056b3;
+    }
+
+    #submitBtn:disabled {
+        background-color: #777;
+        cursor: not-allowed;
+    }
+
+    #successMessage {
+        display: none;
+        margin-top: 15px;
+        padding: 12px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    #errorMessage {
+        display: none;
+        margin-top: 15px;
+        padding: 12px;
+        background-color: #dc3545;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+
+<form id="admissionsForm">
+
+    <label for="studentName">Student Name:</label>
+    <input 
+        type="text" 
+        id="studentName"
+        name="studentName" 
+        required
+    >
+
+    <label for="gradeLevel">Grade Level:</label>
+    <select 
+        id="gradeLevel"
+        name="gradeLevel" 
+        required
+    >
+        <option value="">Select Grade Level</option>
+        <option value="Grade 7">Grade 7</option>
+        <option value="Grade 8">Grade 8</option>
+        <option value="Grade 9">Grade 9</option>
+        <option value="Grade 10">Grade 10</option>
+        <option value="Grade 11">Grade 11</option>
+        <option value="Grade 12">Grade 12</option>
+    </select>
+
+    <label for="parentName">Parent/Guardian Name:</label>
+    <input 
+        type="text" 
+        id="parentName"
+        name="parentName" 
+        required
+    >
+
+    <label for="contactNumber">Contact Number:</label>
+    <input 
+        type="text" 
+        id="contactNumber"
+        name="contactNumber" 
+        required
+    >
+
+    <label for="email">Email Address:</label>
+    <input 
+        type="email" 
+        id="email"
+        name="email"
+    >
+
+    <label for="address">Address:</label>
+    <textarea 
+        id="address"
+        name="address" 
+        rows="3" 
+        required
+    ></textarea>
+
+    <button type="submit" id="submitBtn">
+        Submit Enrollment
+    </button>
+
+    <div id="successMessage">
+        ✅ Enrollment submitted successfully!
+        <br>
+        Thank you for registering.
+    </div>
+
+    <div id="errorMessage">
+        ❌ There was a problem submitting the form.
+        Please try again.
+    </div>
+
+</form>
+
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbx2j2rqUDuZcwzdwv4vRFIOm2m6XSaa9oTj7F7dUxrVfwyu19O0W9nQ6QvfeNaeP6bN/exec";
+
+const form = document.getElementById("admissionsForm");
+const submitBtn = document.getElementById("submitBtn");
+const successMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
+
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    // Hide previous messages
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+
+    // Disable button while sending
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Sending...";
+
+    // Get form information
+    const formData = {
+        studentName: document.getElementById("studentName").value,
+        gradeLevel: document.getElementById("gradeLevel").value,
+        parentName: document.getElementById("parentName").value,
+        contactNumber: document.getElementById("contactNumber").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value
+    };
+
+
+    fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(formData)
+    })
+
+    .then(function() {
+
+        // Show success message
+        successMessage.style.display = "block";
+
+        // Clear the form
+        form.reset();
+
+        // Restore button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "Submit Enrollment";
+
+    })
+
+    .catch(function(error) {
+
+        console.error("Error:", error);
+
+        errorMessage.style.display = "block";
+
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "Submit Enrollment";
+
+    });
+
+});
+
+</script>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions / Enrollment Form</title>
+
+    <style>
+        #admissionsForm {
+            background-color: orange;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        #admissionsForm input,
+        #admissionsForm select,
+        #admissionsForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #submitBtn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submitBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Admissions / Enrollment Form</h2>
+
+<!-- YOUR FORM STARTS HERE -->
+<form id="admissionsForm">
+
+    <label>Student Name:</label>
+    <input type="text" name="studentName" required>
+
+    <br><br>
+
+    <label>Grade Level:</label>
+    <select name="gradeLevel" required>
+        <option value="">Select Grade Level</option>
+        <option value="Grade 7">Grade 7</option>
+        <option value="Grade 8">Grade 8</option>
+        <option value="Grade 9">Grade 9</option>
+        <option value="Grade 10">Grade 10</option>
+        <option value="Grade 11">Grade 11</option>
+        <option value="Grade 12">Grade 12</option>
+    </select>
+
+    <br><br>
+
+    <label>Parent/Guardian Name:</label>
+    <input type="text" name="parentName" required>
+
+    <br><br>
+
+    <label>Contact Number:</label>
+    <input type="text" name="contactNumber" required>
+
+    <br><br>
+
+    <label>Email Address:</label>
+    <input type="email" name="email">
+
+    <br><br>
+
+    <label>Address:</label>
+    <textarea name="address" rows="3" required></textarea>
+
+    <br><br>
+
+    <button type="submit" id="submitBtn">
+        Submit Enrollment
+    </button>
+
+    <div id="successMessage">
+        ✅ Message sent successfully! Your enrollment form has been submitted.
+    </div>
+
+</form>
+
+<!-- JAVASCRIPT GOES HERE -->
+<script>
+document.getElementById("admissionsForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const form = this;
+    const submitBtn = document.getElementById("submitBtn");
+    const successMessage = document.getElementById("successMessage");
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Sending...";
+
+    const formData = new FormData(form);
+
+    fetch("https://formspree.io/f/YOUR-FORM-ID", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+
+            successMessage.style.display = "block";
+
+            submitBtn.innerHTML = "Submitted ✓";
+
+            form.reset();
+
+        } else {
+            alert("There was a problem submitting the form.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "Submit Enrollment";
+        }
+    })
+    .catch(error => {
+
+        alert("Error: Please check your internet connection.");
+
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "Submit Enrollment";
+    });
+
+});
+</script>
+
+</body>
+</html>
